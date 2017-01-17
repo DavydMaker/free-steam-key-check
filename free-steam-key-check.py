@@ -20,6 +20,10 @@ newkey = False
 r = requests.get("http://www.freesteamkeys.me/feed/",headers=headers)
 xml = r.text
 
+if 'Error establishing a database connection' in xml:
+	print('This site is currently unavailable.')
+	exit()
+
 xmldoc = minidom.parseString(xml)
 itemlist = xmldoc.getElementsByTagName('title')
 
