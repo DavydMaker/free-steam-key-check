@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 __author__ = "Davyd Maker"
-__version__ = "1.1.1"
+__version__ = "1.1.2"
 
 from xml.dom import minidom
 import requests
@@ -13,11 +13,16 @@ headers = {
 lastKey = open('checkKey.txt', 'a').close()
 lastKey = open('checkKey.txt', 'r')
 content = lastKey.readlines()
+lastKey.close()
 
 i = 1
 newkey = False
+try:
+	r = requests.get("http://www.freesteamkeys.me/feed/",headers=headers)
+except Exception as e:
+	print('This site is currently unavailable.')
+	exit()
 
-r = requests.get("http://www.freesteamkeys.me/feed/",headers=headers)
 xml = r.text
 
 if 'Error establishing a database connection' in xml:
@@ -33,7 +38,7 @@ if len(content) == 10:
 			newkey = True
 			print('['+str(i)+'][NEW] - '+itemlist[i].firstChild.data)
 		else:
-			print('['+str(i)+'] - '+content[i-1].strip())
+			print('['+str(i)+'] - '+itemlist[i].firstChild.data)
 		i+=1
 else:
 	newkey = True
@@ -41,10 +46,7 @@ else:
 		print('['+str(i)+'][NEW] - '+itemlist[i].firstChild.data)
 		i+=1
 
-
-lastKey.close()
 lastKey = open('checkKey.txt', 'w')
-
 while i <= 19:
 	lastKey.write(itemlist[i-10].firstChild.data+'\n')
 	i+=1
