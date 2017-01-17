@@ -29,7 +29,7 @@ if len(content) == 10:
 			newkey = True
 			print('[NEW] - '+itemlist[i].firstChild.data)
 		else:
-			print(itemlist[i].firstChild.data)
+			print(content[i-1].strip())
 		i+=1
 else:
 	newkey = True
