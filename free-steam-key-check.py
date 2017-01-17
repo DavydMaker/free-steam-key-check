@@ -27,14 +27,14 @@ if len(content) == 10:
 	while i <= 10:
 		if content[i-1].strip() != itemlist[i].firstChild.data:
 			newkey = True
-			print('[NEW]['+str(i)+'] - '+itemlist[i].firstChild.data)
+			print('['+str(i)+'][NEW] - '+itemlist[i].firstChild.data)
 		else:
 			print('['+str(i)+'] - '+content[i-1].strip())
 		i+=1
 else:
 	newkey = True
 	while i <= 10:
-		print('[NEW]['+str(i)+'] - '+itemlist[i].firstChild.data)
+		print('['+str(i)+'][NEW] - '+itemlist[i].firstChild.data)
 		i+=1
 
 
