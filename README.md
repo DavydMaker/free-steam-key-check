@@ -9,12 +9,10 @@
   2 - Baixando Repositório  
     `sudo apt-get install git`  
     `git clone https://github.com/DavydMaker/free-steam-key-check.git`  
-    
-    ou
-    
-    wget https://github.com/DavydMaker/free-steam-key-check/archive/master.zip -O free-steam-key-check.zip  
-    unzip free-steam-key-check.zip  
-    cd free-steam-key-check-*  
+    ou  
+    `wget https://github.com/DavydMaker/free-steam-key-check/archive/master.zip -O free-steam-key-check.zip`  
+    `unzip free-steam-key-check.zip`  
+    `cd free-steam-key-check-*`  
 
   3 - Executando  
     `python3 free-steam-key-check.py`  
